@@ -14,11 +14,12 @@ const displayData = tools =>{
         <div class="card h-100 p-4">
         <img src="${tool.image}" class="card-img-top rounded" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Features</h5>
-          <p class="card-text text-muted">1. Natural language processing </br> 2. Contextual understanding </br>3. Text generation</p>
+          <h5 class="card-title fw-bold">Features</h5>
+          <p class="card-text text-muted">1. ${tool.features[0]} </br>2. ${tool.features[1]} </br>3. ${tool.features[2]}</p>
         </div>
         <hr>
-   
+        <h5 class="card-title fw-bold m-3">${tool.name}</h5>
+        <p class="mx-3 text-muted">${tool.published_in}</p>
       </div>
         `;
         toolContainer.appendChild(toolDiv);
