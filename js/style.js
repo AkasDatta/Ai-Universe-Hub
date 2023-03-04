@@ -22,7 +22,7 @@ const displayData = (data, dataLimit) => {
   data.forEach((tool) => {
       const div = document.createElement('div');
       div.innerHTML = `
-          <div class="d-flex justify-center">
+          <div class="d-flex justify-center mb-5">
               <div class="card h-100 p-4 border-0 shadow-lg" ">
               <img src="${tool.image}" style="height: 200px;" class="card-img-top rounded" alt="...">
               <div class="card-body">
