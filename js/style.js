@@ -107,13 +107,30 @@ document.getElementById('btn-See-more').addEventListener('click', function(){
       
       modalContainer.innerHTML = `
       <div class="col-md-6 border border-danger rounded p-3 shadow" style="background-color: rgb(249, 227, 227)">
-      <H5 class="fw-semibold">${data.description}</H5>
-      <div class="d-flex justify-content-center g-3 mt-3 text-center">
-      <p class="fs-6 bg-white text-success p-2 mx-2 rounded fw-bold" style="height: 85px">${data.pricing === null ? "Free Of Cose/Basic" : data.pricing[0].price}</br> Basic</p>
-      <p class="fs-6 bg-white text-warning p-2 mx-2 rounded fw-bold" style="height: 85px">${data.pricing === null ? "Free Of Cose/Basic" : data.pricing[1].price}</br> Pro</p>
-      <p class="fs-6 bg-white text-danger p-2 mx-2 rounded fw-bold" style="height: 85px">${data.pricing === null ? "Free Of Cose/Basic" : data.pricing[2].price}</p>
-  </div>
-         
+        <H5 class="fw-semibold">${data.description}</H5>
+            <div class="d-flex justify-content-center g-3 mt-3 text-center">
+              <p class="fs-6 bg-white text-success p-2 mx-2 rounded fw-bold" style="height: 85px">${data.pricing === null ? "Free Of Cose/Basic" : data.pricing[0].price}</br> Basic</p>
+              <p class="fs-6 bg-white text-warning p-2 mx-2 rounded fw-bold" style="height: 85px">${data.pricing === null ? "Free Of Cose/Basic" : data.pricing[1].price}</br> Pro</p>
+              <p class="fs-6 bg-white text-danger p-2 mx-2 rounded fw-bold" style="height: 85px">${data.pricing === null ? "Free Of Cose/Basic" : data.pricing[2].price}</p>
+          </div>
+          <div class="d-flex justify-content-between">
+            <div>
+              <h4 class="fw-bold">Features</h4>
+              <ul class="ps-3">
+                  <li>${data.features['1'] ? data.features['1'].feature_name: "No data Found"}</li>
+                  <li>${data.features['2'] ? data.features['2'].feature_name: "No data Found"}</li>
+                  <li>${data.features['3'] ? data.features['3'].feature_name: "No data Found"}</li>
+              </ul>
+          </div>
+          <div>
+              <h4 class="fw-bold">Integrations</h4>
+              <ul class="ps-3">
+                  <li>${data.integrations === null ? "No Data Found" : data.integrations[0]}</li>
+                  <li>${data.integrations === null ? "No Data Found" : data.integrations[1]}</li>
+                  <li>${data.integrations === null ? "No Data Found" : data.integrations[2]}</li>
+              </ul>
+          </div>
+        </div> 
       </div>
       <div class="col-md-6 px-2">
          
