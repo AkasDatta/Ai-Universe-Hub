@@ -19,10 +19,6 @@ const displayData = (data, dataLimit) => {
       showAll.classList.add('d-none');
   }
 
-  document.getElementById('btn-sort').addEventListener('click', function(){
-      const sortArray = data.sort(sorting);
-  });
-
   data.forEach((tool) => {
       const div = document.createElement('div');
       div.innerHTML = `
@@ -55,22 +51,8 @@ const displayData = (data, dataLimit) => {
   });
 };
 
-// Sort by date
-const sorting = (m, n) =>{
-  const dateA = new Date(m.published_in);
-  const dateB = new Date(n.published_in);
-  if(dateA > dateB){
-    return 1;
-  }
-  else if(dateA < dateB){
-      return -1;
-  }
-  else{
-    return 0;
-  }
-};
 
-// show more
+// see more
 document.getElementById('btn-See-more').addEventListener('click', function(){
   loadApi();
   toggleSpinner(true);
@@ -132,11 +114,11 @@ document.getElementById('btn-See-more').addEventListener('click', function(){
         </div> 
       </div>
       <div class="col-md-6 px-2">
-        <div class="card shadow" > 
+        <div class="card shadow text-center" > 
           <img src ="${data.image_link[0] ? data.image_link[0] : "Image Didn't Found"}" class="card-image-top rounded m-3" style="height: 270px" alt="...">
           <div class="card-body">
           <h5 class="fw-bold">${data.input_output_examples === null ? "Can you give any Example?": data.input_output_examples[0].input}</h5>
-          <p>${data.input_output_examples === null ? "No! Not Yet! Take A Break." : data.input_output_examples[0].output.slice(0,173)}</p>
+          <p>${data.input_output_examples === null ? "No! Not Yet! Take a break!!!" : data.input_output_examples[0].output.slice(0,173)}</p>
         </div>
         <div class="d-flex justify-content-end relative">
           <button class="btn btn-danger position-absolute top-0 end-0 ${data.accuracy.score ? "m-0" : "d-none"}">${percentage}</button>
@@ -145,3 +127,4 @@ document.getElementById('btn-See-more').addEventListener('click', function(){
     </div>
   `;
 };
+
