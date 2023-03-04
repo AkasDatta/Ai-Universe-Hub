@@ -7,7 +7,7 @@ const loadApi = (dataLimit) => {
 
 const displayData = (data, dataLimit) => {
   //console.log(data);
-  const container = document.getElementById('cards-container');
+  const container = document.getElementById('tools-container');
   container.innerHTML = "";
   //display 6 data
   const showAll = document.getElementById('See-all');
@@ -21,7 +21,6 @@ const displayData = (data, dataLimit) => {
 
   document.getElementById('btn-sort').addEventListener('click', function(){
       const sortArray = data.sort(sorting);
-      console.log(sortArray);
   });
 
   data.forEach((tool) => {
@@ -57,6 +56,20 @@ const displayData = (data, dataLimit) => {
   });
 };
 
+// Sort by date
+const sorting = (m, n) =>{
+  const dateA = new Date(m.published_in);
+  const dateB = new Date(n.published_in);
+  if(dateA > dateB){
+    return 1;
+  }
+  else if(dateA < dateB){
+      return -1;
+  }
+  else{
+    return 0;
+  }
+};
 
 // show more
 document.getElementById('btn-See-more').addEventListener('click', function(){
@@ -74,3 +87,20 @@ document.getElementById('btn-See-more').addEventListener('click', function(){
         spinner.classList.add('d-none');
     }
   };
+
+   //fetch data by id:
+   const fetchAIDetails = async id => {
+    const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`
+    const res = await fetch(url);
+    const data = await res.json();
+    displayAIDetails(data.data);
+  };
+
+    //display data by id
+    const displayAIDetails = (data) => {
+      // console.log(data) 
+      const modalContainer = document.getElementById('modal-container');
+      const {accuracy} = data;
+      const score = accuracy.score;
+      const percentage = score * 100 + "% Accuracy";
+    }
