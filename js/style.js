@@ -103,4 +103,16 @@ document.getElementById('btn-See-more').addEventListener('click', function(){
       const {accuracy} = data;
       const score = accuracy.score;
       const percentage = score * 100 + "% Accuracy";
-    }
+
+      
+      modalContainer.innerHTML = `
+      <div class="col-md-6 border border-danger rounded p-3 shadow" style="background-color: rgb(249, 227, 227)">
+      <H5 class="fw-semibold">${data.description}</H5>
+          
+         
+      </div>
+      <div class="col-md-6 px-2">
+         
+      </div>
+  `;
+};
