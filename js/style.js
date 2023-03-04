@@ -108,7 +108,11 @@ document.getElementById('btn-See-more').addEventListener('click', function(){
       modalContainer.innerHTML = `
       <div class="col-md-6 border border-danger rounded p-3 shadow" style="background-color: rgb(249, 227, 227)">
       <H5 class="fw-semibold">${data.description}</H5>
-          
+      <div class="d-flex justify-content-center g-3 mt-3 text-center">
+      <p class="fs-6 bg-white text-success p-2 mx-2 rounded fw-bold" style="height: 85px">${data.pricing === null ? "Free Of Cose/Basic" : data.pricing[0].price}</br> Basic</p>
+      <p class="fs-6 bg-white text-warning p-2 mx-2 rounded fw-bold" style="height: 85px">${data.pricing === null ? "Free Of Cose/Basic" : data.pricing[1].price}</br> Pro</p>
+      <p class="fs-6 bg-white text-danger p-2 mx-2 rounded fw-bold" style="height: 85px">${data.pricing === null ? "Free Of Cose/Basic" : data.pricing[2].price}</p>
+  </div>
          
       </div>
       <div class="col-md-6 px-2">
