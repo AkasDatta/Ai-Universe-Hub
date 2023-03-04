@@ -133,7 +133,14 @@ document.getElementById('btn-See-more').addEventListener('click', function(){
         </div> 
       </div>
       <div class="col-md-6 px-2">
-         
+      <div class="card shadow" > 
+          <img src ="${data.image_link[0] ? data.image_link[0] : "Image Didn't Found"}" class="card-image-top rounded m-3" style="height: 270px" alt="...">
+          <div class="card-body">
+          <h5 class="fw-bold">${data.input_output_examples === null ? "Can you give any Example?": data.input_output_examples[0].input}</h5>
+          <p>${data.input_output_examples === null ? "No! Not Yet! Take A Break." : data.input_output_examples[0].output.slice(0,173)}</p>
+      </div>
+     
+  </div>
       </div>
   `;
 };
